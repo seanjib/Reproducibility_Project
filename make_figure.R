@@ -5,7 +5,7 @@ library(dplyr)
 library(ggplot2)
 
 #Read data in
-data = as.tibble(read.xlsx('journal.pone.0206767.s002.xlsx', colNames=FALSE))
+data = as.tibble(read.xlsx('journal.pone.0206767.s002.xlsx', colNames=TRUE))
 
 #Give names to the columns, since apparently they don't stay when I import the data
 colnames(data) = c('age', 'income', 'education', 'work', 'ever_bought_lootbox', 'lootbox_spend', 'ever_bought_microtransaction', 'microtransaction_spend',
@@ -22,7 +22,6 @@ data$ever_bought_lootbox[data$ever_bought_lootbox == 2] = 0
 data$ever_bought_lootbox = as.logical(data$ever_bought_lootbox)
 
 #convert pgsi data to usable values
-colnames(data)
 data = data %>% mutate(pgsi_score = pgsi1+pgsi2+pgsi3+pgsi4+pgsi5+pgsi6+pgsi7+pgsi8+pgsi9)
 amount_categories = c('Never bought a loot box',
                       'Less than $1',
