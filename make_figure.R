@@ -1,10 +1,11 @@
 #Original article at https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0206767
 
 library(openxlsx)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 
 #Read data in
-data = as.tibble(read.xlsx('https://journals.plos.org/plosone/article/file?type=supplementary&id=info:doi/10.1371/journal.pone.0206767.s002', colNames=FALSE))
+data = as.tibble(read.xlsx('journal.pone.0206767.s002.xlsx', colNames=FALSE))
 
 #Give names to the columns, since apparently they don't stay when I import the data
 colnames(data) = c('age', 'income', 'education', 'work', 'ever_bought_lootbox', 'lootbox_spend', 'ever_bought_microtransaction', 'microtransaction_spend',
